@@ -1,0 +1,11 @@
+<template>
+  <input
+    type="checkbox"
+    class="
+      w-6
+      h-6
+    accent-pink-500
+    hover:cursor-pointer
+    "
+  >
+</template>
