@@ -66,4 +66,7 @@ Add the .eslintrc.cjs to your project folder
 
 ### TODO:
 
+You can get icons from here:
+https://feathericons.com/
+
 1. Create and style a button that will remove all completed items
