@@ -5,13 +5,6 @@ import VueTextInput from './VueTextInput.vue';
 import VueCheckbox from './VueCheckbox.vue';
 import VueCloseButton from './VueCloseButton.vue';
 
-const showCompletedlist = ref(true);
-const nextID = ref(2);
-
-const toggleCompletedList = () => {
-  showCompletedlist.value = !showCompletedlist.value;
-};
-
 interface TodoItem {
   completed : boolean;
   label : string;
@@ -26,10 +19,10 @@ const listItems : Ref<TodoItem[]> = ref([
   },
 ]);
 
+const showCompletedlist = ref(true);
+const nextID = ref(2);
 const todoList = computed(() => listItems.value.filter((item) => !item.completed));
-
 const completedTodoList = computed(() => listItems.value.filter((item) => item.completed));
-
 const completedCount = computed(() => completedTodoList.value.length);
 
 const addNewItem = () : void => {
@@ -43,6 +36,10 @@ const addNewItem = () : void => {
 
 const removeTodoItem = (id : number) : void => {
   listItems.value = listItems.value.filter((item) => item.id !== id);
+};
+
+const toggleCompletedList = () => {
+  showCompletedlist.value = !showCompletedlist.value;
 };
 
 watch(todoList, (items) => {
@@ -62,6 +59,7 @@ watch(todoList, (items) => {
       >
         <vue-checkbox
           :checked="todoItem.completed"
+          :disabled="todoItem.label === ''"
           @change="todoItem.completed = !todoItem.completed"
         />
         <vue-text-input
