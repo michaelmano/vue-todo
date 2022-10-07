@@ -64,7 +64,6 @@ watch(todoList, (items) => {
         />
         <vue-text-input
           :value="todoItem.label"
-          :focus-on-mount="true"
           @input="todoItem.label = $event.target.value"
           @keydown.enter="addNewItem()"
         />

@@ -1,18 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
-interface Props {
-  focusOnMount ?: boolean;
-}
-
-const props = defineProps<Props>();
-
 const inputRef = ref();
 
 onMounted(() => {
-  if (props.focusOnMount) {
-    inputRef.value.focus();
-  }
+  inputRef.value.focus();
 });
 </script>
 
