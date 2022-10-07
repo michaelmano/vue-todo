@@ -110,6 +110,7 @@ watch(todoList, (items) => {
           />
           <vue-text-input
             :value="todoItem.label"
+            :disabled="true"
             class="line-through"
           />
           <vue-close-button @click="removeTodoItem(todoItem.id)" />
